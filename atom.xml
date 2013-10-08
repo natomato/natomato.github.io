@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Scratch]]></title>
+  <link href="http://natomato.github.io/atom.xml" rel="self"/>
+  <link href="http://natomato.github.io/"/>
+  <updated>2013-09-17T22:15:26-07:00</updated>
+  <id>http://natomato.github.io/</id>
+  <author>
+    <name><![CDATA[Nate]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[sample post]]></title>
+    <link href="http://natomato.github.io/blog/2013/09/17/sample-post/"/>
+    <updated>2013-09-17T22:12:00-07:00</updated>
+    <id>http://natomato.github.io/blog/2013/09/17/sample-post</id>
+    <content type="html"><![CDATA[<p>Sample post succeeds!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[rbenv Set Up]]></title>
+    <link href="http://natomato.github.io/blog/2013/09/17/rbenv-set-up/"/>
+    <updated>2013-09-17T17:29:00-07:00</updated>
+    <id>http://natomato.github.io/blog/2013/09/17/rbenv-set-up</id>
+    <content type="html"><![CDATA[<h1>Installed using Homebrew</h1>
+
+<p>homebrew install
+* rbenv
+* ruby-build
+* rbenv-gem-rehash</p>
+
+<p>Plugins
+* rbenv-env</p>
+
+<pre><code>mkdir /usr/local/var/rbenv/plugins
+git clone https://github.com/ianheggie/rbenv-env.git
+</code></pre>
+
+<p>  Now: <code>rbenv env</code> to see environment variables</p>
+
+<ul>
+<li><p>rbenv-binstubs
+  mkdir -p ~/.rbenv/plugins
+  git clone <a href="https://github.com/ianheggie/rbenv-binstubs.git">https://github.com/ianheggie/rbenv-binstubs.git</a>
+Then for each application directory run the following just once:
+  bundle install &mdash;binstubs .bundle/bin
+  rbenv rehash</p>
+
+<p>Now you don&rsquo;t need to type <code>bundle exec</code> before typing a command, like <code>rake</code></p>
+
+<p>To confirm that the bundler binstub is being used, run the command:
+  $ rbenv which COMMAND</p>
+
+<p>To show which gem bundle will use, run the command:
+  $ bundle show GEM</p></li>
+</ul>
+
+
+<h1>Homebrew Dirs</h1>
+
+<p>It stores shims in <code>/usr/local/var/rbenv/shims</code>
+It stores programs in <code>/usr/local/Cellar/</code>
+It does not use the default shims folder <code>~/.rbenv</code></p>
+
+<h1>To Use rbenv</h1>
+
+<p>Example Usage installing Ruby 2.0 for the first time</p>
+
+<pre><code>rbenv install 2.0.0-p247
+rbenv versions
+rbenv local 2.0.0-p247
+rbenv versions
+gem install bundler pg rails thin --no-rdoc --no-ri
+bundle install --binstubs .bundle/bin
+rbenv rehash
+</code></pre>
+
+<h1>Errors</h1>
+
+<pre><code>rbenv: version `1.9.3' is not installed
+rbenv local 1.9.3-p392
+</code></pre>
+
+<h1>Miscellaneous Info</h1>
+
+<p>Source: <a href="http://robots.thoughtbot.com/post/47273164981/using-rbenv-to-manage-rubies-and-gems">http://robots.thoughtbot.com/post/47273164981/using-rbenv-to-manage-rubies-and-gems</a></p>
+
+<p>Install your preferred version of Ruby and set it as the global default:</p>
+
+<pre><code>rbenv install 1.9.3-p392
+rbenv global 1.9.3-p392
+</code></pre>
+
+<p>Update to the latest Rubygems version:</p>
+
+<pre><code>gem update --system
+</code></pre>
+
+<p>Install gems critical to Rails development, e.g.</p>
+
+<pre><code>gem install bundler pg rails thin --no-rdoc --no-ri
+</code></pre>
+
+<p>You can set project-specific Ruby and gem versions by running the rbenv local command within your project directory:</p>
+
+<pre><code>rbenv local 1.9.3-p385
+</code></pre>
+
+<p>From <a href="https://github.com/sstephenson/rbenv">https://github.com/sstephenson/rbenv</a></p>
+
+<pre><code>rbenv local
+</code></pre>
+
+<p>Sets a local application-specific Ruby version by writing the version name to a .ruby-version file in the current directory. This version overrides the global version, and can be overridden itself by setting the RBENV_VERSION environment variable or with the rbenv shell command.</p>
+
+<pre><code>$ rbenv local 1.9.3-p327
+</code></pre>
+
+<p>The ruby-build plugin provides an rbenv uninstall command to automate the removal process.</p>
+
+<p>To later update these installs, use upgrade instead of install.</p>
+
+<pre><code>$ rbenv install 2.0.0-p247
+</code></pre>
+
+<p>The <code>--unset</code> option will unset the Ruby currently assigned to a scope, letting the Ruby from the lower precedence scope show through.</p>
+]]></content>
+  </entry>
+  
+</feed>
