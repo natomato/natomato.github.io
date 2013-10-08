@@ -4,7 +4,7 @@
   <title><![CDATA[Scratch]]></title>
   <link href="http://natomato.github.io/atom.xml" rel="self"/>
   <link href="http://natomato.github.io/"/>
-  <updated>2013-10-07T21:28:59-07:00</updated>
+  <updated>2013-10-08T14:13:18-07:00</updated>
   <id>http://natomato.github.io/</id>
   <author>
     <name><![CDATA[Nate]]></name>
@@ -120,15 +120,6 @@ mkdir /usr/local/var/rbenv/plugins
 git clone https://github.com/ianheggie/rbenv-env.git | explanatory text goes here.</p>
   </li>
 </ul>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[sample post]]></title>
-    <link href="http://natomato.github.io/blog/2013/09/17/sample-post/"/>
-    <updated>2013-09-17T22:12:00-07:00</updated>
-    <id>http://natomato.github.io/blog/2013/09/17/sample-post</id>
-    <content type="html"><![CDATA[<p>Sample post succeeds!</p>
 ]]></content>
   </entry>
   
