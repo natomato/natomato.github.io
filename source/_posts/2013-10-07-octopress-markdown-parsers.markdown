@@ -42,7 +42,7 @@ Copied in all of the changes except the captions.
 Created the _coderay-github.scss file
 Changed the _styles.scss and _syntax.scss
 All of the details are available by following the link in the code snippets to go to the github account.
-Push the changes to github.
+Push the changes to github. `git push origin source`
 
 CONS:
 - more file changes required to setup this way
