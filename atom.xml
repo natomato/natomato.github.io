@@ -4,7 +4,7 @@
   <title><![CDATA[Scratch]]></title>
   <link href="http://natomato.github.io/atom.xml" rel="self"/>
   <link href="http://natomato.github.io/"/>
-  <updated>2013-10-08T14:13:18-07:00</updated>
+  <updated>2013-10-08T16:29:11-07:00</updated>
   <id>http://natomato.github.io/</id>
   <author>
     <name><![CDATA[Nate]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ocotobloopers]]></title>
+    <link href="http://natomato.github.io/blog/2013/10/08/ocotobloopers/"/>
+    <updated>2013-10-08T11:45:00-07:00</updated>
+    <id>http://natomato.github.io/blog/2013/10/08/ocotobloopers</id>
+    <content type="html"><![CDATA[<p>Switching the markdown to kramdown and coderay
+After adding and changing several files in octopress I ran <code>git push origin source</code>
+Then <code>rake deploy</code> stopped working. 
+The error message: </p>
+
+<pre><code>[Mon Oct 07 22:51:03] _posts&gt; git push origin source
+Everything up-to-date
+[Mon Oct 07 22:51:18] _posts&gt; git status
+# On branch source
+# Your branch is ahead of 'origin/master' by 742 commits.
+#
+nothing to commit (working directory clean)
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Octopress Markdown Parsers]]></title>

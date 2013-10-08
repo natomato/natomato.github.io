@@ -9,8 +9,9 @@
   <meta name="author" content="Nate">
 
   
-  <meta name="description" content="RedCarpet
-Installation and Configuration _config.yml markdown: redcarpet redcarpet: extensions: [“hard_wrap”, “superscript”, “footnotes”, “ &hellip;">
+  <meta name="description" content="Switching the markdown to kramdown and coderay
+After adding and changing several files in octopress I ran git push origin source
+Then rake deploy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -66,6 +67,54 @@ Installation and Configuration _config.yml markdown: redcarpet redcarpet: extens
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/08/ocotobloopers/">Ocotobloopers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-08T11:45:00-07:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Switching the markdown to kramdown and coderay
+After adding and changing several files in octopress I ran <code>git push origin source</code>
+Then <code>rake deploy</code> stopped working. 
+The error message: </p>
+
+<pre><code>[Mon Oct 07 22:51:03] _posts&gt; git push origin source
+Everything up-to-date
+[Mon Oct 07 22:51:18] _posts&gt; git status
+# On branch source
+# Your branch is ahead of 'origin/master' by 742 commits.
+#
+nothing to commit (working directory clean)
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -346,6 +395,10 @@ rbenv global 1.9.3-p392
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/10/08/ocotobloopers/">Ocotobloopers</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2013/10/07/octopress-markdown-parsers/">Octopress Markdown Parsers</a>
