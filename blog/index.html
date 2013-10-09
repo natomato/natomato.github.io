@@ -5,11 +5,13 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Switching to rbenv - Scratch</title>
+  <title>Scratch</title>
   <meta name="author" content="Nate">
 
   
-  <meta name="description" content="homebrew configuration settings on lion 10.8">
+  <meta name="description" content="Switching the markdown to kramdown and coderay
+After adding and changing several files in octopress I ran git push origin source
+Then rake deploy &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +20,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://natomato.github.io/blog/2013/09/17/rbenv-set-up">
+  <link rel="canonical" href="http://natomato.github.io/blog">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Scratch" type="application/atom+xml">
@@ -63,12 +65,200 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div>
-<article class="hentry" role="article">
+      <div class="blog-index">
   
+  
+  
+    <article>
+      
   <header>
     
-      <h1 class="entry-title">Switching to Rbenv</h1>
+      <h1 class="entry-title"><a href="/blog/2013/10/08/ocotobloopers/">Ocotobloopers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-08T11:45:00-07:00" pubdate data-updated="true">Oct 8<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Switching the markdown to kramdown and coderay
+After adding and changing several files in octopress I ran <code>git push origin source</code>
+Then <code>rake deploy</code> stopped working. 
+The error message: </p>
+
+<pre><code>[Mon Oct 07 22:51:03] _posts&gt; git push origin source
+Everything up-to-date
+[Mon Oct 07 22:51:18] _posts&gt; git status
+# On branch source
+# Your branch is ahead of 'origin/master' by 742 commits.
+#
+nothing to commit (working directory clean)
+</code></pre>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/10/07/octopress-markdown-parsers/">Octopress Markdown Parsers</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-10-07T21:19:00-07:00" pubdate data-updated="true">Oct 7<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h3 id="redcarpet">RedCarpet</h3>
+<p><a href="http://yangsu.github.io/blog/2012/10/11/using-octopress-with-github-flavored-markdown-redcarpet/">Installation and Configuration</a></p>
+
+<p>_config.yml</p>
+
+<blockquote>
+  <p>markdown: redcarpet
+ redcarpet:
+   extensions: [“hard_wrap”, “superscript”, “footnotes”, “no_intra_emphasis”, “fenced_code_blocks”, “autolink”, “strikethrough”, “with_toc_data”]</p>
+</blockquote>
+
+<p>Gemfile</p>
+
+<blockquote>
+  <p>source “https://rubygems.org”</p>
+
+  <p>group :development do
+   gem ‘redcarpet’, ‘~&gt; 2.1.1’
+   …</p>
+</blockquote>
+
+<p>CONS:
+- unable to get footnotes to work as described on their blog.
+- Github Flavored Markdown’s task list support doesn’t work.</p>
+
+<p>PRO:
+- more like Github Flavored Markdown, but not exactly</p>
+
+<h3 id="kramdown-and-coderay">Kramdown and CodeRay</h3>
+<p><a href="http://blog.codebykat.com/2013/05/23/gorgeous-octopress-codeblocks-with-coderay/">Installation and Configuration</a></p>
+
+<p>removed from Gemfile
+  gem ‘rdiscount’, ‘~&gt; 2.0.7’</p>
+
+<p>Copied in all of the changes except the captions.
+Created the _coderay-github.scss file
+Changed the _styles.scss and _syntax.scss
+All of the details are available by following the link in the code snippets to go to the github account.
+Push the changes to github. <code>git push origin source</code></p>
+
+<p>CONS:
+- more file changes required to setup this way
+- cant use triple backticks &#8220;`
+- specifying the code highlighting is awkward: <code>{:lang="ruby"}</code></p>
+
+<h3 id="questions">Questions:</h3>
+<ul>
+  <li>Do either of these have support for shell formatting?</li>
+  <li>How do I render a multi-line code block in a table?</li>
+</ul>
+
+<p>=========
+### Testing</p>
+
+<div class="bogus-wrapper"><notextile><figure class="code"><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class="line-number">1</span>
+<span class="line-number">2</span>
+<span class="line-number">3</span>
+</pre></td><td class="code"><pre><code class="ruby"><span class="line"><span class="k">def</span> <span class="nf">ruby?</span>
+</span><span class="line">  <span class="nb">puts</span> <span class="s2">&quot;I hope so&quot;</span>
+</span><span class="line"><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div>
+
+<p>~~Mistaken text.~~
+www.google.com</p>
+
+<p>This is a sentence.<sup id="fnref-1"><a href="#fn-1" class="footnote-ref">1</a></sup>with a hardcoded footnote, because stupid octopress doesnt work with PHP style footnotes.</p>
+
+<p>here is some intervening text</p>
+
+<p>Roses are red
+Violets are blue</p>
+
+<p><a id="fn-1" href="#fnref-1" class="footnote-backref">↩</a>A hard coded footnote</p>
+
+<p>perform_complicated_task
+do_this_and_do_that_and_another_thing</p>
+
+<ul>
+  <li>[x] @mentions, #refs, <a href="">links</a>, <strong>formatting</strong>, and <del>tags</del> supported</li>
+  <li>[x] list syntax required (any unordered or ordered list supported)</li>
+  <li>[x] this is a complete item</li>
+  <li>[ ] this is an incomplete item</li>
+</ul>
+
+<h3 id="installed-using-homebrew">Installed using Homebrew</h3>
+<pre><code>homebrew install rbenv
+homebrew install ruby-build
+homebrew install rbenv-gem-rehash
+</code></pre>
+
+<h5 id="additional-plugins">Additional Plugins</h5>
+
+<ul>
+  <li>
+    <p>rbenv-env</p>
+
+    <p>Code | Text
+— | —
+mkdir /usr/local/var/rbenv/plugins
+git clone https://github.com/ianheggie/rbenv-env.git | explanatory text goes here.</p>
+  </li>
+</ul>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/09/17/rbenv-set-up/">Switching to Rbenv</a></h1>
     
     
       <p class="meta">
@@ -91,7 +281,7 @@
   </header>
 
 
-<div class="entry-content"><h3 id="installed-using-homebrew">Installed using Homebrew</h3>
+  <div class="entry-content"><h3 id="installed-using-homebrew">Installed using Homebrew</h3>
 <pre><code>homebrew install rbenv
 homebrew install ruby-build
 homebrew install rbenv-gem-rehash
@@ -188,59 +378,18 @@ rbenv global 1.9.3-p392
 
 <p>The <code>--unset</code> option will unset the Ruby currently assigned to a scope, letting the Ruby from the lower precedence scope show through.</p>
 </div>
-
-
-  <footer>
-    <p class="meta">
-      
   
-
-<span class="byline author vcard">Posted by <span class="fn">Nate</span></span>
-
-      
-
-
-
-
-
-
-
-
   
 
 
-<time datetime="2013-09-17T17:29:00-07:00" pubdate data-updated="true">Sep 17<span>th</span>, 2013</time>
-      
-
-<span class="categories">
+    </article>
   
-    <a class='category' href='/blog/categories/reference/'>reference</a>
-  
-</span>
-
-
-    </p>
+  <div class="pagination">
     
-      <div class="sharing">
-  
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://natomato.github.io/blog/2013/09/17/rbenv-set-up/" data-via="" data-counturl="http://natomato.github.io/blog/2013/09/17/rbenv-set-up/" >Tweet</a>
-  
-  
-  
-</div>
-
+    <a href="/blog/archives">Blog Archives</a>
     
-    <p class="meta">
-      
-      
-        <a class="basic-alignment right" href="/blog/2013/10/07/octopress-markdown-parsers/" title="Next Post: Octopress Markdown Parsers">Octopress Markdown Parsers &raquo;</a>
-      
-    </p>
-  </footer>
-</article>
-
+  </div>
 </div>
-
 <aside class="sidebar">
   
     <section>
@@ -265,7 +414,7 @@ rbenv global 1.9.3-p392
 <section>
   <h1>GitHub Repos</h1>
   <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
+    <li class="loading">Status updating&#8230;</li>
   </ul>
   
   <a href="https://github.com/natomato">@natomato</a> on GitHub
@@ -297,7 +446,6 @@ rbenv global 1.9.3-p392
 
   
 </aside>
-
 
     </div>
   </div>
