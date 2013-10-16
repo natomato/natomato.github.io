@@ -41,12 +41,11 @@
   Game.prototype.gameOver = function() {
     window.clearInterval(this.intervalId);
     $(window).unbind('keydown'); //will prevent R to restart
-    console.log("game over man");
   };
 
   Game.prototype.handleKeyEvent = function(event) {
     var input = Game.KEYS[event.keyCode]
-    debugger
+
     switch (input) {
       
       case "pause":
@@ -54,7 +53,6 @@
         break;
       
       case "reload":
-        console.log("restart")
         window.location.reload();
         break;
 
@@ -77,22 +75,17 @@
   Game.prototype.pause = function() {
     if ( this.intervalId ){
       window.clearInterval(this.intervalId);
-      console.log("pause");
       this.intervalId = null;
     } else {
       this.play();
-      console.log("resume")     
     }
   }
 
   Game.prototype.restart = function() {
-    console.log('restart');
   }
 
   Game.prototype.turn = function() {
     // update snake
-    console.log("Player 1: " + this.player1);
-    console.log("Player 2: " + this.player2);
 
     var newDir1 = this.player1.shift();
     if (newDir1) {
@@ -135,7 +128,6 @@
       this.updateUserInput( directions[ index % 4 ], this.player2 );
 
     } else {
-      console.log("input not recognized" + input)
     }
 
   };

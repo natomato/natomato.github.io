@@ -95,7 +95,6 @@
 
       case "snake":
         this.dead = true;
-        console.log('you bit yourself')
         break;
 
       default:
@@ -105,7 +104,6 @@
 
 
   Snake.prototype.grow = function(coord) {
-    console.log("yummy apple");
     this.segments.unshift(coord);
     this.board.apples -= 1;
   }

@@ -79,7 +79,6 @@
     var tile;
     do {
       tile = this.randomTile();
-      console.log(this.getTile(tile));
     } while( !this.isEmpty( tile ) )
 
     return tile
