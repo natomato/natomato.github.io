@@ -1,0 +1,30 @@
+#snake-game {
+  /*width: 600px;*/
+}
+
+.row {
+  /*background-color: #D7DADB;*/
+}
+
+.tile {
+  margin: 0 auto;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #4FDB37;
+  border-radius: 3px;
+}
+
+.snake {
+  background-color: #D7DADB;
+}
+
+.apple {
+  background-color: red;
+}
+
+.score {
+  color: red;
+  font-weight: bold;
+  padding-left: 100px;
+}

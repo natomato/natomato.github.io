@@ -1,0 +1,36 @@
+Notes
+
+add tests!
+create an Apple object
+remove color from Coord and move to snake and apple
+add event listener to level: notify user when level up
+
+make it 2 player
+bug: player 2 hits a direction twice its removed from input queue
+rewrite the game in coffeeScript!
+
+
+add a second player.
+
+Add colors
+  the head should always be the same color... the color the snake is going for
+  new apples must then be added to the second segment... or keep the head as a different segment altogether
+
+When two snakes bump heads, reverse the direction of the snake and move head to the end of the snake... a good defensive manuever if your about to be eaten
+
+The view can't simply redraw the board every turn, there are just too many divs to be rendered every 1/3 of a second
+
+
+The snake object cant reference the game object
+Game -> Snake -> Board -> Coord
+
+Object - Apple
+  label: A
+  Color: random
+  type: apple
+
+Object - Snake
+  label: S, T, or H
+  Color: appleColor || teamColor 
+  type: snake, Tail, Head
+
