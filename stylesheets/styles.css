@@ -708,6 +708,20 @@ header p {
   border-radius: 0px 2px 2px 0px;
   padding-right: 10px;
 }
+
+#banner .banner {
+  height: 50px;
+  width: 120px;
+  display: inline-block;
+}
+
+#banner .spacer {
+  display: inline-block;
+  height: 1px;
+  width: 1px;
+  padding-left: 30%;
+}
+
 #banner .button {
   border: 1px solid #dba500;
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffe788), color-stop(100%, #ffce38));

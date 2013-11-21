@@ -1,16 +1,12 @@
 Notes
 
-add tests!
-create an Apple object
-remove color from Coord and move to snake and apple
-add event listener to level: notify user when level up
 
-make it 2 player
-bug: player 2 hits a direction twice its removed from input queue
 rewrite the game in coffeeScript!
 
+add pause feature
 
-add a second player.
+Currently the board does not know where the snake is:
+  For two player snake, the board must mark the tiles of the snake
 
 Add colors
   the head should always be the same color... the color the snake is going for
@@ -24,13 +20,12 @@ The view can't simply redraw the board every turn, there are just too many divs 
 The snake object cant reference the game object
 Game -> Snake -> Board -> Coord
 
-Object - Apple
-  label: A
-  Color: random
-  type: apple
+2 + 1 = 3
+3 + 3 = 6   ..maintain 3 ( 6 + 2)
+8 + 5 = 13  ..maintain 5 (13 + 4)
+17+ 7 = 24
 
-Object - Snake
-  label: S, T, or H
-  Color: appleColor || teamColor 
-  type: snake, Tail, Head
+outer counter
+  max level
 
+  

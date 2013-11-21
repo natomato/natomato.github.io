@@ -8,9 +8,9 @@
     this.apples = 0;
     this.maxApples = 1;
     this.level = 0;
+    this.appleTimer = width;
+    // this.appleCoords = [];
     this.snakeCoords = [];
-    // this.appleTimer = width + this.snakeCoords.length;
-
   }
 
   Board.makeGrid = function(height, width){
@@ -19,19 +19,6 @@
         return ".";
       });
     });
-  }
-
-  Board.prototype.print = function() {
-    var str = "";
-
-    this.grid.forEach( function(row) {
-      row.forEach( function(cell) {
-        str += cell;
-      })
-      str += "\n"
-    })
-
-    return str;
   }
 
   Board.prototype.center = function(){
@@ -79,6 +66,7 @@
     var tile;
     do {
       tile = this.randomTile();
+      console.log(this.getTile(tile));
     } while( !this.isEmpty( tile ) )
 
     return tile
@@ -133,12 +121,12 @@
 
   Board.prototype.rewardSchedule = function() {
     var newApples = [];
-    // this.appleTimer -= 1;
+    this.appleTimer -= 1;
 
-    // if ( this.appleTimer === 0 ) {
-    //   newApples = newApples.concat( this.makeApples(1) );
-    //   this.appleTimer = this.level * this.width;
-    // }
+    if ( this.appleTimer === 0 ) {
+      newApples = newApples.concat( this.makeApples(1) );
+      this.appleTimer = this.level * this.width;
+    }
     
     if ( this.apples === 0 ) {
       this.level += 1;

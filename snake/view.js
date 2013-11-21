@@ -45,24 +45,12 @@
 
     // DOM reflows - how many happening here?    
     tiles.forEach( function(tile) {
-      el = _this.getEl(tile)
-      el.className = type;
-      el.style.backgroundColor = tile.color;
+      _this.getEl(tile).className = type;
     })
   };
 
-  View.prototype.erase = function(tiles) {
-    var _this = this;
-
-    tiles.forEach( function(tile) {
-      el = _this.getEl(tile)
-      el.className = "tile";
-      el.style.backgroundColor = "";
-    });
-  }
-
   View.prototype.renderSnake = function(newSnake) {
-    this.erase(this.snakeCoords); //resets class to just tile
+    this.render(this.snakeCoords); //resets class to just tile
     this.render(newSnake, "snake");
     this.snakeCoords = newSnake;
   };

@@ -2,52 +2,28 @@
   root.SnakeGame = root.SnakeGame || {};
   
   //upgrade coords to tile objects: color, contents=apple or snake
-  var Coord = SnakeGame.Coord = function(height, width, color) {
+  var Coord = SnakeGame.Coord = function(height, width) {
     this.height = height;
     this.width = width;
-    this.color = color || "red";
+    this.color = null;
     this.contents = null;
   }
 
-  // var Tile = SnakeGame.Tile = function() {
-  //   this.color = this.randomColor();
-  //   this.contents = null;
-  //   this.coord = "this is dumb"
-  // }
-
-  Coord.COLORS = [
-    "red",
-    "royalblue",
-    "violet",
-    "turquoise",
-    "magenta",
-    "snow",
-    "fuschia"
-  ]
-
   Coord.prototype.plus = function(coord2) {
-    return new Coord(this.height + coord2.height, this.width + coord2.width, this.color)
-  }
-
-  Coord.prototype.randomColor = function() {
-    return Coord.COLORS[ _.random(Coord.COLORS.length) ]
-  }
+    return new Coord(this.height + coord2.height, this.width + coord2.width)
+  } 
 
   var Snake = SnakeGame.Snake = function(board) {
     this.board = board;
     this.direction = "E"
-    this.color = "royalblue";
+    this.segments = startingSegments(2); 
+    // this.oldSegments = []
     this.dead = false;
-    this.segments = startingSegments(2, this.color); 
 
-    function startingSegments(num, color) {
+    function startingSegments(num) {
       return _(num).times(function(i) {
-        
-        // start snake as single point
-        // return new SnakeGame.Coord(board.center().width, board.center().height, color);
-        
-        // start with the whole snake on screen
-        return new SnakeGame.Coord(0, -i, color).plus(board.center());
+        return board.center(); //start as single point
+        //return board.center().plus(new SnakeGame.Coord(0, -i));
       });
     }
   }
@@ -68,33 +44,43 @@
       case "W":
         if (newDir != "E") { this.direction = newDir };
         break; 
+      default:
+        console.log("direction " + newDir + " was ignored")
     }
+    //TODO: refactor so tests use === somehow
+    //if (newDir === "S") { newDir = "N" }
   }
 
   Snake.NEXTPOS = {
-    "N": new SnakeGame.Coord(-1, 0, this.color),
-    "E": new SnakeGame.Coord( 0, 1, this.color),
-    "S": new SnakeGame.Coord( 1, 0, this.color),
-    "W": new SnakeGame.Coord( 0, -1, this.color)
+    "N": new SnakeGame.Coord(-1, 0),
+    "E": new SnakeGame.Coord( 0, 1),
+    "S": new SnakeGame.Coord( 1, 0),
+    "W": new SnakeGame.Coord( 0, -1)
   }
 
   Snake.prototype.move = function() {
     var coord = this.head().plus(Snake.NEXTPOS[this.direction]);
+    // need to check move against a future board state
+    // for example a snake following its own tail
     var tile = this.board.getTile(coord)
 
-    // allow the snake to wrap around the edge of the board
-    if (tile === "out of bounds") {
-      coord = this.board.wrap(coord);
-      tile = this.board.getTile(coord)
-    }
-
     switch (tile) {
+
+      // TODO: refactor maybe checkMove, performMove
+      // does not belong here, need to recheck the grid if wrapping
+      case "out of bounds":
+        this.wrap(coord);
+        //this.dead = true;
+        console.log('out of bounds')
+        break;
+
       case "apple":
         this.grow(coord);
         break;
 
       case "snake":
         this.dead = true;
+        console.log('you bit yourself')
         break;
 
       default:
@@ -102,8 +88,8 @@
     }
   }
 
-
   Snake.prototype.grow = function(coord) {
+    console.log("yummy apple");
     this.segments.unshift(coord);
     this.board.apples -= 1;
   }
@@ -111,6 +97,10 @@
   Snake.prototype.slide = function(coord) {
     this.segments.unshift(coord);
     this.segments.pop();
+  }
+
+  Snake.prototype.wrap = function(coord) {
+    this.slide( this.board.wrap(coord) );
   }
 
   Snake.prototype.head = function() {
