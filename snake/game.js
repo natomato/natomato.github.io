@@ -2,10 +2,17 @@
   root.SnakeGame = root.SnakeGame || {}
   
   var Game = SnakeGame.Game = function(options){
-    var height = options.height;
-    var width = options.width;
+    
     var el = options.el
 
+    var convert_pixels_to_cells = function(length){
+      return Math.round(length / 20)
+    }
+
+    var height = convert_pixels_to_cells(options.height) - 5;
+    var width = convert_pixels_to_cells(options.width) - 5;
+    options.height = height;
+    options.width = width; 
     this.board = new SnakeGame.Board(height, width);
     this.snake = new SnakeGame.Snake(this.board);
     this.snakeCoords = this.snake.segments.slice(0);
@@ -135,8 +142,8 @@
 
 $(function() {
   var options = {
-    height: 30,
-    width: 50,
+    height: window.innerHeight,
+    width: window.innerWidth,
     el: $('#snake-game')
   }
 
