@@ -15,7 +15,6 @@
     this.userInput = [];
     this.paused = false;
     this.score = 0;
-    // this.level = 1; //moved to board
     this.appleTimer = width;
   };
 
